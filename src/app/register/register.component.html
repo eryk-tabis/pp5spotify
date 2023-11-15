@@ -1,0 +1,56 @@
+<form *ngIf="!data" [formGroup]="registerForm" (ngSubmit)="submitForm()">
+  <p class="form-title">Register Form</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput type="text" formControlName="username" ngModel>
+  </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" ngModel>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" ngModel>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Phone number</mat-label>
+    <input matInput type="tel" formControlName="number" ngModel>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="checkbox" ngModel>I accept terms of use of this service.</mat-checkbox>
+  <mat-form-field>
+  <input matInput [matDatepicker]="date" placeholder="Select a birthday date" formControlName="date">
+  <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+  <mat-datepicker #date></mat-datepicker>
+</mat-form-field>
+  <button mat-raised-button color="primary">Submit</button>
+</form>
+
+
+<form *ngIf="data" [formGroup]="outputRegisterForm" (ngSubmit)="clearForm()">
+  <p class="form-title">Profile Form</p>
+  <mat-form-field appearance="outline" floatLabel="always" id="specific-border" class="width-1">
+    <mat-label>Username</mat-label>
+    <input matInput type="text" formControlName="username" ngModel readonly placeholder="{{ data.username }}">
+  </mat-form-field>
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" ngModel readonly  placeholder="{{ data.password }}">
+  </mat-form-field>
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" ngModel readonly  placeholder="{{ data.email }}">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label>Phone number</mat-label>
+    <input matInput type="tel" formControlName="number" ngModel readonly  placeholder="{{ data.number }}">
+  </mat-form-field>
+    <mat-checkbox formControlName="checkbox" [ngModel]="true" [disableRipple]="true" (click)="$event.preventDefault()">I accept terms of use of this service.</mat-checkbox>
+  <mat-form-field>
+  <input matInput [matDatepicker]="date" placeholder="{{data.date}}" formControlName="date" ngModel readonly>
+  <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+  <mat-datepicker #date></mat-datepicker>
+</mat-form-field>
+  <button mat-raised-button color="primary">Clear Data</button>
+</form>

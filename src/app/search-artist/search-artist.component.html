@@ -1,0 +1,23 @@
+    <div class="search-container">
+        <input type="text" (keydown.enter)="getArtist($event)" placeholder="Search...">
+      <div *ngIf="data" class="response-container">
+          <div class="response-data">
+           <p> Artist name: {{ data.name }}<br>
+            Followers: {{ data.followers.total }}<br>
+           </p>
+            <ul>
+            Top tracks:
+              <li *ngFor="let track of data.top_tracks">
+                <a href="{{track.external_urls.spotify}}" target="_blank">{{ track.name }}</a><br>
+              </li>
+            </ul>
+            <a href="{{ data.external_urls.spotify }}" target="_blank"><img src="{{ data.images[0].url }}" alt="Artist picture" width="380px" height="380px"></a>
+          </div>
+      </div>
+      <div *ngIf="!data">
+        You can search for artis here. Just type in the name of the artist you are looking for and press enter.<br>
+        You get your result back. Click on the cover picture to open the song in Spotify.
+      </div>
+    </div>
+
+

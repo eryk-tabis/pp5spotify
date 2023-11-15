@@ -1,0 +1,17 @@
+  <div class="search-container">
+      <input type="text" (keydown.enter)="getMusic($event)" placeholder="Search...">
+      <div *ngIf="data" class="response-container">
+          <div *ngFor="let music of data" class="response-data">
+            <p>Title: {{ music.name }}<br>
+            {{music.album.album_type |titlecase}}: {{ music.album.name }}<br>
+            From artist: {{ music.album.artists[0].name }}<br>
+            Released: {{ music.album.release_date }}</p>
+            <a href="{{ music.external_urls.spotify }}" target="_blank"><img src="{{ music.album.images[0].url }}" alt="{{music.album.album_type |titlecase}} cover picture" width="280px" height="280px"></a>
+          </div>
+      </div>
+    <div *ngIf="!data">
+      You can search for music here. Just type in the name of the song, album or artist you are looking for and press enter.<br>
+      You get 9 results back. Click on the cover picture to open the song in Spotify.
+    </div>
+  </div>
+

@@ -1,0 +1,76 @@
+$search-input-bg-color: #f8f9fa;
+$search-input-hover-bg-color: #f1f3f5;
+$search-input-border-radius: 20px;
+$search-input-height: 40px;
+$search-input-width: 300px;
+$response-data-bg-color: #f8f9fa;
+$response-data-border-radius: 10px;
+$response-data-height: 800px;
+$response-data-width: 800px;
+
+
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+
+  input {
+    background-color: $search-input-bg-color;
+    border-radius: $search-input-border-radius;
+    height: $search-input-height;
+    width: $search-input-width;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: $search-input-hover-bg-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.response-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.response-data {
+  font-size: 1.2em;
+  border-radius: $response-data-border-radius;
+  height: $response-data-height;
+  width: $response-data-width;
+  padding: 0px;
+  margin-top: 0px;
+  margin: 10px;
+  padding-top: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+    ul {
+    list-style: none; // removes default list-style
+    padding: 0; // removes default padding
+
+    li {
+      padding: 5px 0; // add some vertical padding
+      font-size: 16px; // adjust font size
+
+      &:hover {
+        background-color: lighten($response-data-bg-color, 10%); // hover effect
+      }
+
+      a {
+        color: black; // link color
+        text-decoration: none; // removes underline
+
+        &:hover {
+          text-decoration: underline; // underline on hover
+        }
+      }
+    }
+  }
+}
