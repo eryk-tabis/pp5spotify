@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+$navbar-bg-color: #f8f9fa;
+$navbar-div-color: #343a40;
+$square-color: #6c757d;
+$square-size: 50px;
+$navbar-div-hover-bg-color: #673ab7;
+$navbar-div-border-radius: 30px;
+
+.center-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+// Style navbar
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+    font-size: 1.2em;
+  div {
+    color: $navbar-div-color;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: $navbar-div-border-radius;
+    padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    &:hover {
+      background-color: $navbar-div-hover-bg-color;
+      color: white;
+    }
+  }
+}
+
